@@ -1,0 +1,3 @@
+﻿  Board.cpp
+c:\users\charles\dropbox\bart\session 2\programation avancée\tp2_jeuechecs\jeuechec\jeuechec\board.cpp(379): warning C4101: 'stats' : variable locale non référencée
+  JeuEchec.vcxproj -> C:\Users\Charles\Dropbox\Bart\Session 2\Programation Avancée\TP2_JeuEchecs\JeuEchec\Debug\JeuEchec.exe

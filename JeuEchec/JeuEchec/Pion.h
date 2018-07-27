@@ -22,8 +22,16 @@ public:
 	/// Gets the possible attacks.
 	/// </summary>
 	/// <returns>All possibles attack for the pawn</returns>
-	virtual std::vector<std::vector<std::tuple<int, int>>> GetPossibleAttack() { return m_PossibleAttacks; }
+	virtual std::vector<std::vector<std::tuple<int, int>>> GetPossibleAttack() { return m_PossibleAttacks; } // Return the same as availableMoves. Only pawns have different move for attack.
+	
+	virtual void SetHP(int HP);
 
+	virtual void CastSpell();
+
+	virtual int GetHP() { return m_Hp; }
+
+protected:
+	
 private:
 	std::vector<std::vector<std::tuple<int, int>>> m_PossibleAttacks;   // Contains possible attacks for a pawn.
 };

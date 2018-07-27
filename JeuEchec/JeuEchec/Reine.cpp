@@ -6,6 +6,12 @@ Reine::Reine(const Enums::EPieceColor a_PieceColor)
 	m_PieceType = Enums::EPieceType::Reine;
 	m_PieceColor = a_PieceColor;
 
+	m_Hp = 8;
+	m_AttackDamage = 2;
+	m_Armor = 1;
+
+	m_SpellAvailable = true;
+
 	for (int i = 1, j = 1; i < 8; i++, j++)
 	{
 		m_AvailableMoves[Enums::EDirection::North_East].push_back(std::tuple<int, int>(i, j));

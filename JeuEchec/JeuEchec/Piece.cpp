@@ -1,6 +1,7 @@
 #include "Piece.h"
 
 #include <SDL_image.h>
+#include "Board.h"
 
 Piece::Piece(const std::string a_PieceTexturePath)
 {
@@ -39,3 +40,39 @@ void Piece::Update()
 {
 
 }
+
+
+void Piece::Attack(Piece* targetedPiece)
+{
+	targetedPiece->AddDamage(m_AttackDamage);
+}
+
+void Piece::AddDamage(int Damage)
+{	
+	if (Damage > m_Armor)
+	{
+		m_Hp -= Damage - m_Armor;
+	}	
+}
+
+void Piece::Invincibility()
+{
+	m_Armor += 20;
+}
+
+void Piece::RestoreSpell()
+{
+	m_SpellAvailable = true;
+}
+
+void Piece::DamageArmorBoost()
+{
+	m_AttackDamage += 3;
+	m_Armor += 3;
+}
+
+
+
+
+
+

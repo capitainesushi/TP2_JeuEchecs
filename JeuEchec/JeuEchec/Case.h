@@ -78,13 +78,13 @@ public:
 	/// Gets the I of the case.
 	/// </summary>
 	/// <returns>The index I of the case</returns>
-	const int GetI() { return m_OriginalY / Board::CASE_WIDTH; }
+	const int GetI() { return (m_OriginalY - Board::Y_OFFSET) / Board::CASE_WIDTH; }
 	
 	/// <summary>
 	/// Gets the J of the case.
 	/// </summary>
 	/// <returns>The index J of the case</returns>
-	const int GetJ() { return m_OriginalX / Board::CASE_HEIGHT; }
+	const int GetJ() { return (m_OriginalX - Board::X_OFFSET) / Board::CASE_HEIGHT; }
 	
 	/// <summary>
 	/// Determines whether this case is empty.
@@ -119,6 +119,10 @@ public:
 	///   <c>true</c> if the color is not the same as the piece; otherwise, <c>false</c>.
 	/// </returns>
 	bool IsPieceIsNotThisColor(Enums::EPieceColor a_Color) { return m_Piece->IsNotThisColor(a_Color); }
+
+
+	// Va chercher la pièce sélectionnée
+	Piece* GetPiece() { return m_Piece; }
 
 private:
 	

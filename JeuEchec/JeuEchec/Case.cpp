@@ -1,16 +1,11 @@
 #include "Case.h"
 #include "Board.h"
-#include "Pion.h"
-#include "Tour.h"
-#include "Chevalier.h"
-#include "Fou.h"
-#include "Reine.h"
-#include "Roi.h"
+#include "PieceFactory.h"
 #include <tuple>
 
 Case::Case(const int a_X, const int a_Y)
-	: m_OriginalX(a_X)
-	, m_OriginalY(a_Y)
+	: m_OriginalX(a_X + Board::X_OFFSET)
+	, m_OriginalY(a_Y + Board::Y_OFFSET)
 {
 	Init();
 }
@@ -18,29 +13,7 @@ Case::Case(const int a_X, const int a_Y)
 Case::Case(const int a_X, const int a_Y, const Enums::EPieceType a_PieceType, const Enums::EPieceColor a_Color)
 	: Case(a_X, a_Y)
 {
-	switch (a_PieceType)
-	{
-	case Enums::EPieceType::Pion:
-		m_Piece = new Pion(a_Color);
-		break;
-	case Enums::EPieceType::Tour:
-		m_Piece = new Tour(a_Color);
-		break;
-	case Enums::EPieceType::Chevalier:
-		m_Piece = new Chevalier(a_Color);
-		break;
-	case Enums::EPieceType::Fou:
-		m_Piece = new Fou(a_Color);
-		break;
-	case Enums::EPieceType::Reine:
-		m_Piece = new Reine(a_Color);
-		break;
-	case Enums::EPieceType::Roi:
-		m_Piece = new Roi(a_Color);
-		break;
-	default:
-		break;
-	}
+	m_Piece = PieceFactory::CreatePiece(a_PieceType, a_Color);
 }
 
 Case::~Case()
@@ -148,9 +121,12 @@ std::vector<std::tuple<int, int>> Case::GetAvailableMoves(const std::vector<std:
 			if (i > -1 && i < Board::CASE_NUMBER && j > -1 && j < Board::CASE_NUMBER)
 			{
 				// If a piece of the opposite color is found, add the targeted indexes, and look for another direction.
-				if (a_Cases[i][j]->IsNotEmpty() && a_Cases[i][j]->IsPieceIsNotThisColor(m_Piece->GetColor()))
+				if (a_Cases[i][j]->IsNotEmpty())
 				{
-					availableMoves.push_back(*iter);
+					if (a_Cases[i][j]->IsPieceIsNotThisColor(m_Piece->GetColor()))
+					{
+						availableMoves.push_back(*iter);
+					}
 					break;
 				}
 			}

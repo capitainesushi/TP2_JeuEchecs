@@ -5,6 +5,12 @@ Chevalier::Chevalier(const Enums::EPieceColor a_PieceColor)
 {
 	m_PieceType = Enums::EPieceType::Chevalier;
 	m_PieceColor = a_PieceColor;
+
+	m_Hp = 6;
+	m_AttackDamage = 6;
+	m_Armor = 1;
+
+	m_SpellAvailable = false;
 	
 	m_AvailableMoves[Enums::EDirection::South_West].push_back(std::tuple<int, int>(-1, -2));
 	m_AvailableMoves[Enums::EDirection::North_West].push_back(std::tuple<int, int>(1, -2));

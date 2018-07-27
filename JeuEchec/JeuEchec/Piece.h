@@ -9,7 +9,9 @@
 #include <vector>
 #include <tuple>
 
+
 class Case;
+class Board;
 
 class Piece
 {
@@ -78,6 +80,34 @@ public:
 	///   <c>true</c> if the color is not the same as the parameter; otherwise, <c>false</c>.
 	/// </returns>
 	bool IsNotThisColor(Enums::EPieceColor a_Color) { return !IsThisColor(a_Color); }
+
+
+		
+	
+	//Fonction appelée lorsqu'une pièce attaque un ennemi. Prend  la pièce ennemie en paramètre pour avoir accès à sa position et ses stats
+	void Attack(Piece* targetedPiece);
+	
+	// Getters afin d'avoir accès aux différentes stats de mes pièces
+	int GetHP() { return m_Hp; }	
+	int GetAttackDamage() { return m_AttackDamage; }
+	int GetArmor() { return m_Armor; }
+	bool IsSpellAvailable() { return m_SpellAvailable; }
+
+	// Enlève des points de vie à la pièce selon les dommages encaissés
+	void AddDamage(int Damage);	
+
+	// Rend la pièce invincible
+	void Invincibility();
+
+	// Restaure le Spell d'une pièce
+	void RestoreSpell();
+
+	// Donne un boost permanent de Damage et d'armure à une pièce
+	void DamageArmorBoost();
+	
+
+	
+
 	
 protected:
 	
@@ -91,11 +121,19 @@ protected:
 	Enums::EPieceType m_PieceType;  // The piece type
 	Enums::EPieceColor m_PieceColor;  // The piece color
 
-	std::vector<std::vector<std::tuple<int, int>>> m_AvailableMoves;  // Available moves for the piece
+	std::vector<std::vector<std::tuple<int, int>>> m_AvailableMoves;  // Available moves for the piece	
+
+	// Stats de mes pièces
+	int m_Hp;
+	int m_AttackDamage;
+	int m_Armor;
+	bool m_SpellAvailable;	
+	
+	
 
 private:
 	
-
+	Board* m_Board;
 };
 
 #endif //__PIECE__

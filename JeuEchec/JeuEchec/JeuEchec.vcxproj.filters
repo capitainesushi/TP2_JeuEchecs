@@ -57,6 +57,12 @@
     <ClCompile Include="Roi.cpp">
       <Filter>Fichiers sources\Pieces</Filter>
     </ClCompile>
+    <ClCompile Include="PieceFactory.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -97,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="EDirection.h">
       <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="PieceFactory.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

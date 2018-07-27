@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\..\SDL2_image-2.0.3\include;..\..\SDL2-2.0.8\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\SDL2-2.0.8\lib\x86;..\..\SDL2_image-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\SDL2_ttf-2.0.14\include;..\..\SDL2_image-2.0.3\include;..\..\SDL2-2.0.8\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\SDL2_ttf-2.0.14\lib\x86;..\..\SDL2-2.0.8\lib\x86;..\..\SDL2_image-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -81,7 +81,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -129,7 +129,9 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Piece.cpp" />
+    <ClCompile Include="PieceFactory.cpp" />
     <ClCompile Include="Pion.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Reine.cpp" />
     <ClCompile Include="Roi.cpp" />
     <ClCompile Include="Tour.cpp" />
@@ -144,7 +146,9 @@
     <ClInclude Include="Fou.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Piece.h" />
+    <ClInclude Include="PieceFactory.h" />
     <ClInclude Include="Pion.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Reine.h" />
     <ClInclude Include="Roi.h" />
     <ClInclude Include="Tour.h" />
